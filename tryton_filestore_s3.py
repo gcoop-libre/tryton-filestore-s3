@@ -42,8 +42,8 @@ def name(id, prefix=''):
     return '/'.join(filter(None, [prefix, id]))
 
 def get_client():
-    access_key = config.get('database', 'access_key', default='')
-    secret_key = config.get('database', 'secret_key', default='')
+    access_key = config.get('database', 'access_key', default=None)
+    secret_key = config.get('database', 'secret_key', default=None)
     bucket = config.get('database', 'bucket')
     client = boto3.client('s3',
         aws_access_key_id     = access_key,
