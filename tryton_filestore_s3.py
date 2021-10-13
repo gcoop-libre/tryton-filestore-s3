@@ -2,10 +2,8 @@
 # this repository contains the full copyright notices and license terms.
 import boto3
 import uuid
-
 from trytond.config import config
 from trytond.filestore import FileStore
-from trytond.pool import Pool
 
 
 class FileStoreS3(FileStore):
@@ -38,15 +36,18 @@ class FileStoreS3(FileStore):
     def setmany(self, data, prefix=''):
         return [self.set(d, prefix) for d in data]
 
+
 def name(id, prefix=''):
     return '/'.join(filter(None, [prefix, id]))
+
 
 def get_client():
     access_key = config.get('database', 'access_key', default=None)
     secret_key = config.get('database', 'secret_key', default=None)
     bucket = config.get('database', 'bucket')
-    client = boto3.client('s3',
-        aws_access_key_id     = access_key,
-        aws_secret_access_key = secret_key,
-        )
+    client = boto3.client(
+        's3',
+        aws_access_key_id=access_key,
+        aws_secret_access_key=secret_key,
+    )
     return client, bucket
