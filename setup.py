@@ -13,7 +13,7 @@ def read(fname):
 
 setup(
     name='tryton-filestore-s3',
-    version='0.1.3',
+    version='0.2.0',
     author='gcoop',
     author_email='info@gcoop.coop',
     url='https://github.com/gcoop-libre/tryton-filestore-s3',

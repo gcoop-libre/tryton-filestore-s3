@@ -1,2 +1,6 @@
+Version 0.2.0 - 2021-10-13
+* Fallback to boto3 authentication mechanisms 
+* Drop deprecated use_2to3 setuptools option 
+
 Version 0.1.0 - 2018-01-15
 * Initial release
