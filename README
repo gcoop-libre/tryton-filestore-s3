@@ -19,6 +19,10 @@ An example configuration file looks like::
 Once you have specified the config file, everything should work out of the
 box and you should see your attachments created on the S3 bucket.
 
+You can configure a different endpoint URL than the one generated for Amazon
+with the configuration `s3_endpoint` (which must contain the scheme like
+`https://`).
+
 Thanks
 ------
 This module was developed by gcoop in association with Gotsho. Thanks
