@@ -1,3 +1,5 @@
+* Use s3 prefix for configuration
+
 Version 0.2.0 - 2021-10-13
 * Fallback to boto3 authentication mechanisms 
 * Drop deprecated use_2to3 setuptools option 
