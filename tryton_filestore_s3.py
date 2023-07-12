@@ -42,8 +42,12 @@ def name(id, prefix=''):
 
 
 def get_client():
-    access_key = config.get('database', 'access_key', default=None)
-    secret_key = config.get('database', 'secret_key', default=None)
+    access_key = config.get('database', 's3_access_key')
+    if access_key is None:
+        access_key = config.get('database', 'access_key')
+    secret_key = config.get('database', 's3_secret_key')
+    if secret_key is None:
+        secret_key = config.get('database', 'secret_key')
     bucket = config.get('database', 'bucket')
     endpoint_url = config.get('database', 's3_endpoint')
     client = boto3.client(

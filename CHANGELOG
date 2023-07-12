@@ -1,3 +1,4 @@
+* Use s3 prefix for configuration
 * Add endpoint URL configuration
 
 Version 0.2.0 - 2021-10-13
