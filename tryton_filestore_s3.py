@@ -14,17 +14,11 @@ class FileStoreS3(FileStore):
         response = s3.get_object(Bucket=bucket, Key=key)
         return response['Body'].read()
 
-    def getmany(self, ids, prefix=''):
-        return [self.get(id, prefix) for id in ids]
-
     def size(self, id, prefix=''):
         s3, bucket = get_client()
         key = name(id, prefix)
         response = s3.head_object(Bucket=bucket, Key=key)
         return response['ContentLength']
-
-    def sizemany(self, ids, prefix=''):
-        return [self.size(id, prefix) for id in ids]
 
     def set(self, data, prefix=''):
         s3, bucket = get_client()
@@ -32,9 +26,6 @@ class FileStoreS3(FileStore):
         key = name(id, prefix)
         s3.put_object(Bucket=bucket, Key=key, Body=data)
         return id
-
-    def setmany(self, data, prefix=''):
-        return [self.set(d, prefix) for d in data]
 
 
 def name(id, prefix=''):
